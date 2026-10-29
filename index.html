@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brinco · Ropa para familias primerizas</title>
+<meta name="description" content="Ropa y accesorios de crianza para familias primerizas, con descuento cada jueves y un asistente que resuelve tus dudas.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐣%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6FAF7;--ink:#1E2B45;--muted:#59657D;--sage:#CFE3D6;--green:#2F6B4F;--butter:#F6DE9B;--sky:#CFE1F1;--line:#D9E4DC;--white:#fff;
+--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.55 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.08;margin:0}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(246,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font:800 1.5rem var(--head);text-decoration:none;letter-spacing:-.02em}
+nav{display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover{text-decoration:underline}
+.bagbtn{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:9px 18px;font-weight:600}
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;letter-spacing:-.03em}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34em;margin:18px 0 26px}
+.stages{display:flex;flex-wrap:wrap;gap:10px}
+.stages button,.chips button{border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:9px 16px;font-weight:600;transition:background .15s,color .15s}
+.stages button[aria-pressed=true],.chips button[aria-pressed=true]{background:var(--ink);color:#fff}
+.stages button:hover:not([aria-pressed=true]),.chips button:hover:not([aria-pressed=true]){background:var(--sage)}
+.stagehint{font-size:.95rem;color:var(--muted);margin:12px 0 0}
+.tag{background:var(--butter);border-radius:22px 22px 22px 6px;padding:28px 28px 24px;position:relative;box-shadow:0 14px 30px -18px rgba(30,43,69,.45)}
+.tag::before{content:"";position:absolute;top:16px;right:18px;width:14px;height:14px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--ink)}
+.tag h2{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.tag .sub{margin:0 0 16px;color:#4a4530}
+.tag ul{list-style:none;margin:0;padding:0}
+.tag li{display:flex;align-items:baseline;gap:14px;padding:9px 0;border-top:1.5px dashed rgba(30,43,69,.3)}
+.tag li b{font:800 1.9rem/1 var(--head);min-width:2.4ch}
+.tag .nota{margin:14px 0 0;font-size:.95rem}
+section{padding:48px 0}
+.sechead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.sechead h2{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-.02em}
+.sechead p{margin:6px 0 0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{padding:6px 14px;font-size:.95rem;border-width:1.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:140px;display:grid;place-items:center;font-size:3.6rem}
+.card .in{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-size:1.1rem;font-weight:700}
+.card .cat{color:var(--muted);font-size:.9rem}
+.card .row{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center}
+.price{font:700 1.2rem var(--head)}
+.add{background:var(--green);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-weight:600}
+.add:hover{background:#245640}
+.empty{padding:30px;border:2px dashed var(--line);border-radius:14px;color:var(--muted)}
+.tips{background:var(--sage)}
+.tips .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.tips h3{font-size:1.25rem;font-weight:700;border-top:3px solid var(--ink);padding-top:12px;margin-bottom:8px}
+.tips p{margin:0}
+details{border-bottom:1px solid var(--line);padding:16px 0;max-width:760px}
+summary{font:700 1.15rem var(--head);cursor:pointer}
+details p{margin:10px 0 0;color:var(--muted)}
+footer{padding:30px 0 90px;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.on{opacity:1;transform:translateX(-50%)}
+dialog{border:0;border-radius:18px;padding:24px;width:min(440px,92vw);color:var(--ink)}
+dialog::backdrop{background:rgba(30,43,69,.5)}
+dialog h2{font-size:1.5rem;margin-bottom:12px}
+dialog ul{list-style:none;padding:0;margin:0 0 14px}
+dialog li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.dlgrow{display:flex;gap:10px;justify-content:flex-end}
+.ghost{background:transparent;border:2px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:600}
+.promo{background:var(--ink);color:#fff;text-align:center;padding:9px 14px;font-size:.95rem}
+.promo.hoy{background:var(--green);font-weight:600}
+.card s{color:var(--muted);font-size:.9rem;margin-right:6px}
+.tag li.sep{border-top:2px solid var(--ink);margin-top:8px;padding-top:12px;font:700 1.05rem var(--head)}
+/* chatbot */
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:14px 20px;font-weight:600;box-shadow:0 10px 24px -8px rgba(30,43,69,.6)}
+.chat{position:fixed;right:18px;bottom:18px;z-index:50;width:360px;max-width:calc(100vw - 24px);height:min(560px,calc(100dvh - 36px));background:var(--white);border-radius:20px;box-shadow:0 24px 60px -16px rgba(30,43,69,.55);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+.chat.open{display:flex}
+.chat header{position:static;background:var(--ink);color:#fff;border:0;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:none}
+.chat header strong{font:700 1.1rem var(--head)}
+.chat header small{display:block;opacity:.75;font-size:.8rem}
+.chat header button{background:transparent;border:0;color:#fff;font-size:1.4rem;line-height:1}
+.msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.m{max-width:88%;padding:10px 13px;border-radius:16px;font-size:.97rem;line-height:1.45}
+.m.bot{background:var(--white);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.m.me{background:var(--green);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.m ul{margin:6px 0 0;padding-left:18px}
+.m a{color:var(--green);font-weight:600}
+.quick{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px 0;background:var(--bg)}
+.quick button{background:var(--white);border:1.5px solid var(--ink);border-radius:999px;padding:5px 11px;font-size:.85rem;font-weight:500}
+.quick button:hover{background:var(--sage)}
+.chat form{display:flex;gap:8px;padding:12px;background:var(--bg)}
+.chat input{flex:1;min-width:0;border:2px solid var(--line);border-radius:999px;padding:10px 14px;font:inherit}
+.chat input:focus{border-color:var(--green);outline:0}
+.chat form button{background:var(--green);color:#fff;border:0;border-radius:999px;padding:0 18px;font-weight:600}
+@media(max-width:820px){.hero .wrap,.tips .cols{grid-template-columns:1fr}nav a{display:none}.hero{padding-top:36px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="promo" id="promo"></div>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">Brinco</a>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#consejos">Consejos</a>
+      <a href="#preguntas">Preguntas</a>
+      <button class="bagbtn" id="bagBtn" aria-haspopup="dialog">Bolsa (<span id="bagN">0</span>)</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Lo justo para los primeros meses.</h1>
+      <p class="lead">Ropa suave y todo lo necesario para la crianza: paseo, comida, baño, descanso y juego. Con una lista clara de cuánto comprar en cada etapa y descuento cada jueves.</p>
+      <div class="stages" id="stages" role="group" aria-label="Etapa del bebé"></div>
+      <p class="stagehint">Elige la etapa de tu bebé y la lista y el catálogo se ajustan.</p>
+    </div>
+    <aside class="tag" aria-live="polite">
+      <h2 id="tagT"></h2>
+      <p class="sub">Cantidades sugeridas para empezar</p>
+      <ul id="tagL"></ul>
+      <p class="nota" id="tagN"></p>
+    </aside>
+  </div>
+</div>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <h2>Catálogo</h2>
+        <p id="count"></p>
+      </div>
+      <div class="chips" id="cats" role="group" aria-label="Categorías"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="tips" id="consejos">
+  <div class="wrap">
+    <div class="sechead"><h2>Tres cosas que nadie te dice antes</h2></div>
+    <div class="cols">
+      <div><h3>Compra poco en talla recién nacido</h3><p>Muchos bebés pasan a la siguiente talla en pocas semanas. Con unas pocas prendas de 0–3 meses y el resto en 3–6, te cubres.</p></div>
+      <div><h3>Lava todo antes del primer uso</h3><p>Usa detergente suave sin perfume y lávala por separado de la ropa del resto de la familia. Quita etiquetas que rocen la piel.</p></div>
+      <div><h3>Viste por capas</h3><p>Una capa más que tú suele ser suficiente. Es más fácil quitar o poner una chambrita que cambiar toda la ropa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="preguntas">
+  <div class="wrap">
+    <div class="sechead"><h2>Preguntas frecuentes</h2></div>
+    <details><summary>¿Cómo funcionan los descuentos de los jueves?</summary><p id="faqDesc"></p></details>
+    <details><summary>¿Cuánto tarda el envío?</summary><p id="faqEnvio"></p></details>
+    <details><summary>¿Puedo cambiar una talla?</summary><p id="faqCambio"></p></details>
+    <details><summary>¿De qué tela es la ropa?</summary><p>Algodón suave, pensado para piel delicada. Si tu bebé tiene la piel muy sensible, consulta a su pediatra antes de estrenar prendas.</p></details>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Brinco · Proyecto de ejemplo. Los productos, precios y políticas son de muestra: edítalos en la sección CONFIG del código.</div></footer>
+
+<dialog id="bag" aria-labelledby="bagT">
+  <h2 id="bagT">Tu bolsa</h2>
+  <ul id="bagL"></ul>
+  <p><strong>Total: <span id="bagTot">$0</span></strong></p>
+  <p style="color:var(--muted);font-size:.9rem;margin:0 0 14px">Esta es una demo: conecta aquí tu sistema de pago.</p>
+  <div class="dlgrow"><button class="ghost" id="bagClear">Vaciar bolsa</button><button class="add" id="bagClose">Cerrar</button></div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<button class="fab" id="fab" aria-expanded="false" aria-controls="chat">💬 Pregúntale a Brinqui</button>
+<section class="chat" id="chat" aria-label="Asistente Brinqui">
+  <header><div><strong>Brinqui</strong><small>Asistente para familias primerizas</small></div><button id="chatX" aria-label="Cerrar chat">×</button></header>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="quick" id="quick"></div>
+  <form id="form"><input id="inp" type="text" placeholder="Escribe tu duda…" aria-label="Tu pregunta" autocomplete="off"><button>Enviar</button></form>
+</section>
+
+<script>
+/* ===== CONFIG: edita aquí tus datos ===== */
+const CONFIG = {
+  envio: "Envío estándar de 3 a 5 días hábiles. Gratis en compras desde $999 MXN.",
+  cambios: "Tienes 30 días para cambiar tallas, con la prenda sin uso y con etiquetas.",
+  descuento: {pct:15, dia:4, nombre:"Jueves de Brinco"}, // dia: 0=domingo ... 4=jueves
+};
+const STAGES = [
+  {t:"Recién nacido", r:"0–3 meses", nota:"Compra pocas prendas de esta talla: se queda chica rápido.",
+   list:[["Bodys de manga larga",7],["Pijamas con cierre",4],["Pares de calcetines",5],["Gorritos de algodón",2],["Pares de manoplas",2],["Chambritas",2],["Mantitas de muselina",2]]},
+  {t:"3 a 6 meses", r:"3–6 meses", nota:"Ya se mueve más: prefiere prendas elásticas y con pie.",
+   list:[["Bodys",6],["Pijamas con pie",4],["Pantalones con pie",4],["Pares de calcetines",5],["Chambritas o suéteres",2],["Sacos de dormir",1]]},
+  {t:"6 a 12 meses", r:"6–12 meses", nota:"Gatea y se ensucia: elige prendas fáciles de lavar y con refuerzo en rodillas.",
+   list:[["Bodys",6],["Pantalones",5],["Playeras o camisetas",4],["Pijamas",3],["Conjuntos para salir",2],["Sombreros para el sol",1]]},
+  {t:"12 a 24 meses", r:"12–24 meses", nota:"Camina y explora: busca comodidad, cierres fáciles y tela resistente.",
+   list:[["Playeras",6],["Pantalones o shorts",5],["Pijamas",3],["Sudaderas",2],["Overoles",2],["Pares de calcetines",6]]}
+];
+const EXTRAS = [
+  [["Cajas de pañales",2],["Paquetes de toallitas",2],["Biberones",3],["Bañera",1],["Silla de auto",1]],
+  [["Cajas de pañales",2],["Biberones",3],["Juguetes de estimulación",3],["Baberos",3]],
+  [["Baberos",6],["Plato y cubiertos",1],["Periquera",1],["Kit de seguridad para casa",1]],
+  [["Cajas de pañales",2],["Juguete de empuje",1],["Barreras de seguridad",1],["Baberos",3]]
+];
+const CATS = ["Todo","Básicos","Dormir","Abrigo","Accesorios","Salir","Hospital","Paseo","Alimentación","Cuidado","Juego","Seguridad"];
+const BG = {Básicos:"#CFE1F1",Dormir:"#DCD6F0",Abrigo:"#F6DE9B",Accesorios:"#CFE3D6",Salir:"#F7D3C4",Hospital:"#F3E7C9",Paseo:"#D4E8E4",Alimentación:"#F9E2C8",Cuidado:"#D3EAF2",Juego:"#F8D9DE",Seguridad:"#E4EBC9"};
+const PRODUCTS = [
+  {id:1,n:"Pack 3 bodys manga larga",c:"Básicos",s:[0,1],p:289,e:"👕"},
+  {id:2,n:"Pack 3 bodys manga corta",c:"Básicos",s:[0,1,2],p:259,e:"👕"},
+  {id:3,n:"Pijama mameluco con cierre",c:"Dormir",s:[0,1,2],p:329,e:"🌙"},
+  {id:4,n:"Saco de dormir ligero",c:"Dormir",s:[1,2,3],p:399,e:"🛏️"},
+  {id:5,n:"Pack 5 pares de calcetines",c:"Accesorios",s:[0,1,2,3],p:149,e:"🧦"},
+  {id:6,n:"Gorrito de algodón",c:"Accesorios",s:[0,1],p:99,e:"🧢"},
+  {id:7,n:"Manoplas antirrasguños",c:"Accesorios",s:[0],p:89,e:"🧤"},
+  {id:8,n:"Chambrita tejida",c:"Abrigo",s:[0,1],p:349,e:"🧥"},
+  {id:9,n:"Mantita de muselina",c:"Abrigo",s:[0,1,2,3],p:269,e:"🧣"},
+  {id:10,n:"Pantalón con pie",c:"Básicos",s:[1,2],p:219,e:"👖"},
+  {id:11,n:"Overol suave",c:"Salir",s:[2,3],p:379,e:"🧸"},
+  {id:12,n:"Conjunto sudadera y pants",c:"Salir",s:[2,3],p:449,e:"🧒"},
+  {id:13,n:"Sombrero para el sol UPF 50",c:"Accesorios",s:[2,3],p:129,e:"👒"},
+  {id:14,n:"Kit hospital: 3 bodys, gorro y mantita",c:"Hospital",s:[0],p:599,e:"🏥"},
+  {id:15,n:"Carriola ligera y plegable",c:"Paseo",s:[0,1,2,3],p:3499,e:"🚼"},
+  {id:16,n:"Silla de auto para bebé",c:"Paseo",s:[0,1],p:2799,e:"🚗"},
+  {id:17,n:"Silla de auto convertible",c:"Paseo",s:[2,3],p:3299,e:"🚗"},
+  {id:18,n:"Portabebés ergonómico",c:"Paseo",s:[0,1,2],p:1199,e:"🤱"},
+  {id:19,n:"Pañalera con cambiador",c:"Paseo",s:[0,1,2,3],p:699,e:"👜"},
+  {id:20,n:"Set de 3 biberones anticólicos",c:"Alimentación",s:[0,1,2],p:459,e:"🍼"},
+  {id:21,n:"Extractor de leche manual",c:"Alimentación",s:[0,1],p:899,e:"🍼"},
+  {id:22,n:"Pack de 6 baberos de algodón",c:"Alimentación",s:[1,2,3],p:179,e:"🥣"},
+  {id:23,n:"Plato y cubiertos de silicón",c:"Alimentación",s:[2,3],p:249,e:"🍽️"},
+  {id:24,n:"Periquera plegable",c:"Alimentación",s:[2,3],p:1599,e:"🪑"},
+  {id:25,n:"Bañera con soporte para recién nacido",c:"Cuidado",s:[0,1,2],p:599,e:"🛁"},
+  {id:26,n:"Kit de baño: jabón suave, toalla con capucha y esponja",c:"Cuidado",s:[0,1,2,3],p:449,e:"🧼"},
+  {id:27,n:"Caja de pañales ultrasuaves",c:"Cuidado",s:[0,1,2,3],p:349,e:"🧷"},
+  {id:28,n:"Toallitas húmedas sin perfume (3 pzas)",c:"Cuidado",s:[0,1,2,3],p:159,e:"🧻"},
+  {id:29,n:"Termómetro digital",c:"Cuidado",s:[0,1,2,3],p:249,e:"🌡️"},
+  {id:30,n:"Moisés portátil",c:"Dormir",s:[0,1],p:1899,e:"🛏️"},
+  {id:31,n:"Monitor de bebé con cámara",c:"Dormir",s:[0,1,2,3],p:1299,e:"📹"},
+  {id:32,n:"Máquina de ruido blanco",c:"Dormir",s:[0,1,2],p:349,e:"🎶"},
+  {id:33,n:"Gimnasio de actividades",c:"Juego",s:[0,1],p:699,e:"🎪"},
+  {id:34,n:"Set de 3 sonajas suaves",c:"Juego",s:[0,1],p:189,e:"🔔"},
+  {id:35,n:"Mordedera de silicón",c:"Juego",s:[1,2],p:129,e:"🧸"},
+  {id:36,n:"Libro de tela con texturas",c:"Juego",s:[1,2,3],p:169,e:"📖"},
+  {id:37,n:"Apilables de colores",c:"Juego",s:[2,3],p:249,e:"🧱"},
+  {id:38,n:"Carrito de empuje para primeros pasos",c:"Juego",s:[3],p:599,e:"🚶"},
+  {id:39,n:"Kit de seguridad: cubre enchufes y protectores de esquina",c:"Seguridad",s:[2,3],p:299,e:"🔌"},
+  {id:40,n:"Barrera de seguridad para escalera",c:"Seguridad",s:[2,3],p:899,e:"🚧"}
+];
+/* ===== FIN CONFIG ===== */
+
+const $ = id => document.getElementById(id);
+const money = n => new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0}).format(n);
+const state = {stage:0, cat:"Todo", bag:{}};
+
+const D = CONFIG.descuento;
+const isThu = () => new Date().getDay()===D.dia || new URLSearchParams(location.search).has("jueves");
+const price = p => isThu() ? Math.round(p.p*(1-D.pct/100)) : p.p;
+function promo(){
+  const el = $("promo");
+  if(isThu()){ el.className = "promo hoy"; el.textContent = `${D.nombre}: hoy tienes ${D.pct}% de descuento en toda la tienda.`; return; }
+  const d = (D.dia - new Date().getDay() + 7) % 7;
+  el.textContent = `${D.nombre}: cada jueves ${D.pct}% de descuento en toda la tienda. ${d===1 ? "Es mañana." : "Faltan "+d+" días."}`;
+}
+function setStage(i){ state.stage=i; state.cat="Todo"; render(); }
+function setCat(c){ state.cat=c; render(); }
+
+function render(){
+  const st = STAGES[state.stage];
+  $("stages").innerHTML = STAGES.map((s,i)=>`<button aria-pressed="${i===state.stage}" data-stage="${i}">${s.r}</button>`).join("");
+  $("tagT").textContent = "Lista para " + st.r;
+  $("tagL").innerHTML = st.list.map(([n,q])=>`<li><b>${q}</b><span>${n}</span></li>`).join("") + `<li class="sep">Para el día a día</li>` + EXTRAS[state.stage].map(([n,q])=>`<li><b>${q}</b><span>${n}</span></li>`).join("");
+  $("tagN").textContent = st.nota;
+  $("cats").innerHTML = CATS.map(c=>`<button aria-pressed="${c===state.cat}" data-cat="${c}">${c}</button>`).join("");
+  const items = PRODUCTS.filter(p=>p.s.includes(state.stage) && (state.cat==="Todo"||p.c===state.cat));
+  $("count").textContent = items.length + (items.length===1?" prenda":" prendas") + " para " + st.r;
+  $("grid").innerHTML = items.length ? items.map(p=>`
+    <article class="card"><div class="thumb" style="background:${BG[p.c]}" aria-hidden="true">${p.e}</div>
+    <div class="in"><h3>${p.n}</h3><span class="cat">${p.c}</span>
+    <div class="row"><span>${isThu() ? `<s>${money(p.p)}</s>` : ""}<span class="price">${money(price(p))}</span></span><button class="add" data-add="${p.id}" aria-label="Agregar ${p.n}">Agregar</button></div></div></article>`).join("")
+    : `<div class="empty" style="grid-column:1/-1">No hay prendas de esta categoría para ${st.r}. Prueba con “Todo” u otra categoría.</div>`;
+}
+
+function toast(t){ const el=$("toast"); el.textContent=t; el.classList.add("on"); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove("on"),1800); }
+function bagCount(){ return Object.values(state.bag).reduce((a,b)=>a+b,0); }
+function addToBag(id){ state.bag[id]=(state.bag[id]||0)+1; $("bagN").textContent=bagCount(); toast("Agregado: "+PRODUCTS.find(p=>p.id==id).n); }
+function showBag(){
+  const rows = Object.entries(state.bag).map(([id,q])=>{const p=PRODUCTS.find(x=>x.id==id);return {p,q};});
+  $("bagL").innerHTML = rows.length ? rows.map(({p,q})=>`<li><span>${q} × ${p.n}</span><span>${money(price(p)*q)}</span></li>`).join("") : "<li>Tu bolsa está vacía.</li>";
+  $("bagTot").textContent = money(rows.reduce((a,{p,q})=>a+price(p)*q,0));
+  $("bag").showModal();
+}
+
+document.addEventListener("click", e=>{
+  const t = e.target.closest("[data-stage],[data-cat],[data-add]"); if(!t) return;
+  if(t.dataset.stage!==undefined) setStage(+t.dataset.stage);
+  else if(t.dataset.cat!==undefined){ setCat(t.dataset.cat); if(t.tagName==="A") $("chat").classList.remove("open"); }
+  else if(t.dataset.add) addToBag(t.dataset.add);
+});
+$("bagBtn").onclick = showBag;
+$("bagClose").onclick = ()=>$("bag").close();
+$("bagClear").onclick = ()=>{ state.bag={}; $("bagN").textContent=0; showBag(); };
+$("faqEnvio").textContent = CONFIG.envio;
+$("faqDesc").textContent = `Cada jueves aplicamos ${D.pct}% de descuento en toda la tienda, ropa y accesorios. El precio rebajado aparece en las tarjetas y en tu bolsa. Para verlo en cualquier día, añade ?jueves a la dirección de la página.`;
+promo();
+$("faqCambio").textContent = CONFIG.cambios;
+
+/* ===== Chatbot (reglas por palabras clave, funciona sin servidor) ===== */
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const listHtml = i => `<ul>${STAGES[i].list.map(([n,q])=>`<li>${q} ${n.toLowerCase()}</li>`).join("")}</ul>Para el día a día:<ul>${EXTRAS[i].map(([n,q])=>`<li>${q} ${n.toLowerCase()}</li>`).join("")}</ul>`;
+const stageFromText = t => {
+  const m = t.match(/(\d+)\s*(mes|meses|m\b)/); const a = t.match(/(\d+)\s*(ano|anos)/);
+  let months = m ? +m[1] : a ? +a[1]*12 : /recien nacido|reci[eé]n|nacio|naci[oó]/.test(t) ? 0 : null;
+  if(months===null) return null;
+  return months<3 ? 0 : months<6 ? 1 : months<12 ? 2 : 3;
+};
+const RULES = [
+  {k:["hola","buenas","hey","buenos dias","buenas tardes"], a:()=>"¡Hola! Soy Brinqui. Te ayudo con tallas, cantidades, accesorios y cuidados para tu bebé. ¿Qué quieres saber?"},
+  {k:["hospital","maleta","parto","cesarea","nacer","dar a luz"], a:()=>`Para el hospital lleva:<ul><li>3 bodys y 2 pijamas</li><li>1 gorrito, calcetines y manoplas</li><li>1 mantita para la salida</li><li>Una muda extra por si acaso</li></ul>Todo en talla recién nacido, pero lleva también una de 3 meses por si tu bebé nace grande. <a href="#catalogo" data-cat="Hospital">Ver kit hospital</a>`},
+  {k:["talla","tamano","medida","crece","crecer","chica","grande"], a:()=>"Muchos bebés cambian de talla en pocas semanas. Compra pocas prendas de 0–3 meses y completa con 3–6. Si dudas entre dos tallas, elige la más grande. Dime la edad de tu bebé y te recomiendo la lista."},
+  {k:["cuantos","cuantas","cantidad","necesito","lista","comprar","basico"], a:()=>`Para ${STAGES[state.stage].r} te sugiero:${listHtml(state.stage)}Puedes cambiar la etapa arriba o decirme la edad de tu bebé.`},
+  {k:["lavar","lavado","detergente","suavizante","mancha","limpiar","cuidado de la ropa"], a:()=>"Lava todo antes de estrenar, con detergente suave sin perfume y sin suavizante. Sepárala de la ropa del resto de la familia, enjuaga bien y quita las etiquetas que rocen la piel. Para manchas, usa agua fría y jabón neutro."},
+  {k:["frio","calor","temperatura","abrigo","capas","clima","sudor","abrigar"], a:()=>"Viste a tu bebé con una capa más que la que tú llevarías. Revisa su nuca o pecho: si está sudado, quita una capa; si está frío, agrega una. Las manos y pies fríos son normales. <a href='#catalogo' data-cat='Abrigo'>Ver abrigos</a>"},
+  {k:["tela","algodon","alergia","piel","irrita","organico","sarpullido"], a:()=>"Elige algodón suave y costuras planas, sin etiquetas ásperas. Lava siempre antes del primer uso. Si tu bebé tiene irritación o la piel muy sensible, consulta a su pediatra."},
+  {k:["dormir","pijama","saco","noche","sueno","cuna","monitor","moises","ruido blanco"], a:()=>"Para dormir, usa pijama con cierre y, en lugar de cobijas sueltas en la cuna, un saco de dormir de la talla correcta. Pregunta a su pediatra por las recomendaciones de sueño seguro. <a href='#catalogo' data-cat='Dormir'>Ver ropa para dormir</a>"},
+  {k:["envio","entrega","llega","paqueteria","tarda"], a:()=>CONFIG.envio},
+  {k:["cambio","devolucion","devolver","cambiar"], a:()=>CONFIG.cambios},
+  {k:["precio","presupuesto","barato","cuesta","gastar","ahorrar","cuanto"], a:()=>"Para ahorrar: compra pocas prendas de talla recién nacido, prioriza bodys y pijamas (se usan a diario) y deja los conjuntos de salir para después. Con la lista de tu etapa sabes exactamente cuánto necesitas."},
+  {k:["regalo","baby shower","shower","obsequio"], a:()=>"Para regalo, las tallas de 3–6 y 6–12 meses son las más útiles: los papás ya suelen tener lo de recién nacido. Los bodys, pijamas y mantitas de muselina nunca fallan."},
+  {k:["descuento","jueves","oferta","promocion","promo","rebaja","cupon"], a:()=>`${D.nombre}: cada jueves tienes ${D.pct}% de descuento en toda la tienda, ropa y accesorios. Se aplica solo en los precios y en tu bolsa. ${isThu() ? "¡Y hoy es jueves!" : "Aún no es jueves, pero ya puedes armar tu bolsa."}`},
+  {k:["carriola","paseo","coche","portabebes","panalera","silla de auto","pasear","viaje"], a:()=>`Para salir te recomiendo una carriola ligera y plegable, una pañalera con cambiador y, si te mueves en auto, una silla de auto desde el primer viaje (incluida la salida del hospital). Instálala siguiendo el manual y revisa que sea la adecuada para la edad y el peso de tu bebé. <a href="#catalogo" data-cat="Paseo">Ver paseo</a>`},
+  {k:["biberon","leche","lactancia","comer","papilla","periquera","baberos","alimentacion","extractor"], a:()=>`Sobre qué darle de comer y cuándo empezar con sólidos, consulta a su pediatra. En la tienda tienes biberones, extractor, baberos, platos y periquera según la etapa. <a href="#catalogo" data-cat="Alimentación">Ver alimentación</a>`},
+  {k:["panal","toallita","bano","banera","higiene","termometro"], a:()=>`Al principio un recién nacido puede usar entre 8 y 12 pañales al día, así que ten cajas de repuesto. Para el baño necesitas bañera con soporte, jabón suave y toalla con capucha. <a href="#catalogo" data-cat="Cuidado">Ver cuidado e higiene</a>`},
+  {k:["seguridad","enchufe","escalera","barrera","proteger","gatear","esquina"], a:()=>`Cuando tu bebé empieza a gatear (alrededor de los 6 meses) conviene proteger enchufes, esquinas y escaleras. <a href="#catalogo" data-cat="Seguridad">Ver seguridad</a>`},
+  {k:["juguete","sonaja","estimulacion","jugar","mordedera","libro"], a:()=>`Al inicio, sonajas suaves y un gimnasio de actividades; después, libros de tela y mordederas; y con los primeros pasos, juguetes de empuje. <a href="#catalogo" data-cat="Juego">Ver juguetes</a>`},
+  {k:["gracias","genial","perfecto"], a:()=>"¡Con gusto! Si te surge otra duda, aquí estoy."}
+];
+const QUICK = ["¿Qué llevo al hospital?","¿Qué talla compro?","¿Hay descuentos?","¿Qué llevo para salir de paseo?","¿Cómo lavo la ropa?","Mi bebé tiene 5 meses"];
+
+function addMsg(who, html, isText){
+  const d = document.createElement("div"); d.className = "m " + who;
+  isText ? d.textContent = html : d.innerHTML = html;
+  $("msgs").appendChild(d); $("msgs").scrollTop = $("msgs").scrollHeight;
+}
+function reply(text){
+  const t = norm(text);
+  const st = stageFromText(t);
+  if(st!==null){
+    setStage(st);
+    return `Para ${STAGES[st].r} te sugiero:${listHtml(st)}${STAGES[st].nota} <a href="#catalogo">Ver prendas</a>`;
+  }
+  let best=null, score=0;
+  for(const r of RULES){ const s = r.k.filter(k=>t.includes(norm(k))).length; if(s>score){score=s;best=r;} }
+  return best ? best.a() : "No estoy seguro de haber entendido. Puedo ayudarte con tallas, cantidades, maleta del hospital, accesorios, descuentos, cuidado de la ropa, envíos y cambios. Prueba con alguna de las opciones de abajo.";
+}
+function ask(text){
+  text = text.trim(); if(!text) return;
+  addMsg("me", text, true);
+  setTimeout(()=>addMsg("bot", reply(text)), 350);
+}
+$("form").onsubmit = e=>{ e.preventDefault(); ask($("inp").value); $("inp").value=""; };
+$("quick").innerHTML = QUICK.map(q=>`<button type="button">${q}</button>`).join("");
+$("quick").onclick = e=>{ if(e.target.tagName==="BUTTON") ask(e.target.textContent); };
+function toggleChat(open){
+  $("chat").classList.toggle("open", open); $("fab").style.display = open ? "none" : "";
+  $("fab").setAttribute("aria-expanded", open); if(open) $("inp").focus(); else $("fab").focus();
+}
+$("fab").onclick = ()=>toggleChat(true);
+$("chatX").onclick = ()=>toggleChat(false);
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && $("chat").classList.contains("open")) toggleChat(false); });
+addMsg("bot", "¡Hola! Soy Brinqui. Te ayudo con tallas, cantidades, accesorios y cuidados para tu bebé. Dime cuántos meses tiene o elige una pregunta.");
+
+render();
+</script>
+</body>
+</html>
